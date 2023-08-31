@@ -20,4 +20,12 @@ public class TabelaProdutos {
                 this.produtos.add(caderno);
 
     }
+
+    public List<Produto> getProdutos() {
+        return produtos;
+    }
+
+    public List<Produto> buscarTodosOsProdutos(){
+        return this.getProdutos();
+    }
 }
