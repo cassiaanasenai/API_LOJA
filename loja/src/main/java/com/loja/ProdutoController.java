@@ -2,7 +2,6 @@ package com.loja;
 
 import org.springframework.web.bind.annotation.*;
 
-import java.nio.file.Path;
 import java.util.List;
 
 @RestController
@@ -24,9 +23,14 @@ public class ProdutoController {
         return produtoProcurado;
     }
 
-    @PostMapping
+    @PostMapping("/{produtoId}")
     public Produto cadastrarNovoProdutoNaLoja(@RequestBody Produto dadosNovoProduto){
         return this.tabelaProdutos.cadastrarNovoProduto(dadosNovoProduto);
     }
+    @PutMapping("/{produtoId}")
+    public void atualizarProdutoNaLoja(@PathVariable int produtoId, @RequestBody Produto dadosAtualizarProduto){
+        this.tabelaProdutos.atualizarProduto(produtoId, dadosAtualizarProduto);
+    }
+
 
 }
