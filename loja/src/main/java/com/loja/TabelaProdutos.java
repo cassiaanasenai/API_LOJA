@@ -21,6 +21,7 @@ public class TabelaProdutos {
         Produto mochila = new Produto(10,"Mochila escolar", "Mochilas escolares diversas", 99.99);
 
 
+
                 this.produtos.add(caneta);
                 this.produtos.add(borracha);
                 this.produtos.add(lapis);
@@ -52,5 +53,15 @@ public class TabelaProdutos {
             }
         }
         return produtoProcurado;
+    }
+
+    public Produto cadastrarNovoProduto(Produto novoProduto){
+        int ultimoIndex = this.produtos.size() - 1;
+        Produto ultimoProduto = this.produtos.get(ultimoIndex);
+        int proximoId = ultimoProduto.getId() + 1;
+
+        novoProduto.setId(proximoId);
+        this.produtos.add(novoProduto);
+        return novoProduto;
     }
 }
